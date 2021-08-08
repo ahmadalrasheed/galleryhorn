@@ -1,0 +1,12 @@
+.divs{
+    position: relative;
+    width: 500px;
+    left: 34%;
+    margin-top: 60px;
+}
+h1,p,h2{
+    text-align: center;
+}
+body{
+    background-color: #DAD0C2;
+}
