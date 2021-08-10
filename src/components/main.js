@@ -2,6 +2,7 @@ import React from 'react';
 import Hornedbeasts from './hornedbeasts';
 import './main.css';
 import Data from './data.json';
+import SelectedBeasts from './SelectedBeast ';
 
 class Main extends React.Component {
 
@@ -13,6 +14,7 @@ class Main extends React.Component {
             <>
 
               <Hornedbeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+              <SelectedBeasts title={items.title} image_url={items.image_url} description={items.description}/>
 
             </>
           );

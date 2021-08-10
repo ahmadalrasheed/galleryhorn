@@ -19,10 +19,11 @@ class SelectedBeasts extends React.Component{
         {/* {console.log( this.props.ModalDidsplay() )} */}
         <Modal show={this.props.show}>
           <Modal.Header onClick={()=>this.props.CloseModel()} closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>{this.props.title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body><img src={this.props.image_url}/></Modal.Body>
           <Modal.Footer>
+            {this.props.description}
             <Button onClick={()=>this.props.CloseModel()} variant="secondary">
             Close
             </Button>
@@ -30,6 +31,7 @@ class SelectedBeasts extends React.Component{
             Save Changes
             </Button>
           </Modal.Footer>
+          {console.log( this.props.title )}
 
         </Modal>
       </>

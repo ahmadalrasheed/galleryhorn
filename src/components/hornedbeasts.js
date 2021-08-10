@@ -8,7 +8,6 @@ import SelectedBeasts from './SelectedBeast ';
 
 
 
-
 class Hornedbeasts extends React.Component{
   constructor( props ){
     super( props );
@@ -23,15 +22,19 @@ class Hornedbeasts extends React.Component{
      votes:this.state.votes + 1
    } );
 
+
  }
+ DisplayUpdate = ()=>{
+   this.props.DisplayModel();
+   <SelectedBeasts title={this.props.title} image_url={this.props.image_url} description={this.props.description}/>;
+ };
+
 
  render(){
    return(
      <div className="centerdiv">
-       <SelectedBeasts title={this.props.title} image_url={this.props.image_url} description={this.props.description}/>
-
        <Card style={{ width: '18rem' }}>
-         <Card.Img onClick={()=>this.props.DisplayModel()} variant="top" src={this.props.image_url} height="300px" width="300px" />
+         <Card.Img onClick={()=>this.DisplayUpdate()} variant="top" src={this.props.image_url} height="300px" width="300px" />
          <Card.Body>
            <Card.Title>{this.props.title}</Card.Title>
            <Card.Text>{this.props.description}</Card.Text>
