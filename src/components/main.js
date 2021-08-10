@@ -4,11 +4,22 @@ import './main.css';
 import Data from './data.json';
 
 class Main extends React.Component {
+
   render() {
     return (
       <div>
-        {Data.map( items=>
-          <Hornedbeasts title={items.title} image_url={items.image_url} description={items.description}/>
+        {Data.map( items=>{
+          return(
+            <>
+
+              <Hornedbeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+
+            </>
+          );
+
+
+        }
+
         )}
 
 
