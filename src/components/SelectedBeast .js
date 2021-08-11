@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Data from './data.json';
+
 
 
 class SelectedBeasts extends React.Component{
@@ -11,19 +13,26 @@ class SelectedBeasts extends React.Component{
     };
   }
 
+  found=()=>{
+    const founded = Data.find( element => element.title === this.props.title );
+    return founded;
+  }
+
 
   render(){
+    console.log( this.props );
+
     return(
       <>
         {/* {this.props.ModalDidsplay()} */}
         {/* {console.log( this.props.ModalDidsplay() )} */}
         <Modal show={this.props.show}>
           <Modal.Header onClick={()=>this.props.CloseModel()} closeButton>
-            <Modal.Title>{this.props.title}</Modal.Title>
+            <Modal.Title>{this.props.titleUpdate}</Modal.Title>
           </Modal.Header>
-          <Modal.Body><img src={this.props.image_url}/></Modal.Body>
+          <Modal.Body><img src={this.props.imageUpdate} height="400" width="470"/></Modal.Body>
           <Modal.Footer>
-            {this.props.description}
+            {this.props.descriptionUpdate}
             <Button onClick={()=>this.props.CloseModel()} variant="secondary">
             Close
             </Button>
@@ -31,7 +40,6 @@ class SelectedBeasts extends React.Component{
             Save Changes
             </Button>
           </Modal.Footer>
-          {console.log( this.props.title )}
 
         </Modal>
       </>

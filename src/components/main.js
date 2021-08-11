@@ -13,8 +13,8 @@ class Main extends React.Component {
           return(
             <>
 
-              <Hornedbeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-              <SelectedBeasts title={items.title} image_url={items.image_url} description={items.description}/>
+              <Hornedbeasts newprops={this.props.newprops} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+              <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
 
             </>
           );

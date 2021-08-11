@@ -12,14 +12,17 @@ class App extends React.Component {
     super(props);
     this.state={
       show:false,
+      image_url:'',
+      title:'',
+      description:''
     }
   }
 
-  DisplayModel=()=>{
-    this.setState({
-      show:true,
-    })
-  }
+  // DisplayModel=()=>{
+  //   this.setState({
+  //     show:true,
+  //   })
+  // }
 
   CloseModel=()=>{
     this.setState({
@@ -27,12 +30,26 @@ class App extends React.Component {
     })
   }
 
+  Test=(img,title1,description1)=>{
+    this.setState({
+      show:true,
+      image_url:img,
+      title:title1,
+      description:description1
+    })
+    console.log('test function');
+  }
+
   render() {
     return (
       <>
         <Header />
-        <Main DisplayModel={this.DisplayModel}/>
-        <SelectedBeasts CloseModel={this.CloseModel} show={this.state.show} />
+        <Main newprops={this.Test} DisplayModel={this.DisplayModel}/>
+        <SelectedBeasts CloseModel={this.CloseModel} show={this.state.show}
+        titleUpdate={this.state.title}
+        descriptionUpdate={this.state.description}
+        imageUpdate={this.state.image_url}
+         />
         <Footer />
         {console.log(this.state.show)};
       </>
