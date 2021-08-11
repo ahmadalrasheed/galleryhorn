@@ -2,13 +2,26 @@ import React from 'react';
 import Hornedbeasts from './hornedbeasts';
 import './main.css';
 import Data from './data.json';
+import SelectedBeasts from './SelectedBeast ';
 
 class Main extends React.Component {
+
   render() {
     return (
       <div>
-        {Data.map( items=>
-          <Hornedbeasts title={items.title} image_url={items.image_url} description={items.description}/>
+        {Data.map( items=>{
+          return(
+            <>
+
+              <Hornedbeasts newprops={this.props.newprops} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+              <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+
+            </>
+          );
+
+
+        }
+
         )}
 
 
