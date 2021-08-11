@@ -30,7 +30,7 @@ class App extends React.Component {
     })
   }
 
-  Test=(img,title1,description1)=>{
+  UpdateState=(img,title1,description1)=>{
     this.setState({
       show:true,
       image_url:img,
@@ -44,14 +44,14 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <Main newprops={this.Test} DisplayModel={this.DisplayModel}/>
+        <Main UpdateState={this.UpdateState} DisplayModel={this.DisplayModel}/>
         <SelectedBeasts CloseModel={this.CloseModel} show={this.state.show}
         titleUpdate={this.state.title}
         descriptionUpdate={this.state.description}
         imageUpdate={this.state.image_url}
          />
         <Footer />
-        {console.log(this.state.show)};
+        {/* {console.log(this.state.show)}; */}
       </>
 
     );

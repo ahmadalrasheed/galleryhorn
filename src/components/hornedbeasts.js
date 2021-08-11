@@ -27,7 +27,7 @@ class Hornedbeasts extends React.Component{
  DisplayUpdate = ()=>{
    //  <SelectedBeasts title={this.props.title} image_url={this.props.image_url} description={this.props.description}/>;
    //  this.props.DisplayModel();
-   this.props.newprops( this.props.image_url,this.props.title,this.props.description );
+   this.props.UpdateState( this.props.image_url,this.props.title,this.props.description );
  };
 
 

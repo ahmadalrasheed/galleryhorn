@@ -3,25 +3,106 @@ import Hornedbeasts from './hornedbeasts';
 import './main.css';
 import Data from './data.json';
 import SelectedBeasts from './SelectedBeast ';
+import Form from 'react-bootstrap/Form';
+import Data1 from './horn1.json';
+import Data2 from './horn2.json';
+import Data3 from './horn3.json';
+import Data4 from './horn100.json';
+
 
 class Main extends React.Component {
+  constructor( props ){
+    super( props );
+    this.state = {
+      NumOfHorn:0
+    };
+  }
+
+  Filterhorn=async( e )=>{
+    await this.setState( {
+      NumOfHorn:Number( e.target.value )
+    } );
+    console.log( this.state.NumOfHorn );
+  }
+
+  DropDown=()=>{
+    return(
+      <Form.Select onChange={this.Filterhorn} aria-label="Floating label select example">
+        <option value="0">filter by number of horns: ALL</option>
+        <option value="1" >one</option>
+        <option value="2" >Two</option>
+        <option value="3" >Three</option>
+        <option value="100" >WOOW!!</option>
+      </Form.Select>
+    );
+
+
+  }
 
   render() {
+    // {DropDown;}
     return (
       <div>
+        {this.DropDown()}
         {Data.map( items=>{
-          return(
-            <>
-
-              <Hornedbeasts newprops={this.props.newprops} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-              <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-
-            </>
-          );
-
-
+          if( this.state.NumOfHorn === 0 ){
+            return(
+              <>
+                {/* {console.log( this.state.NumOfHorn )} */}
+                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+              </>
+            );
+          }
         }
-
+        )}
+        {Data1.map( items=>{
+          if( this.state.NumOfHorn === 1 ){
+            return(
+              <>
+                {/* {console.log( this.state.NumOfHorn )} */}
+                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+              </>
+            );
+          }
+        }
+        )}
+        {Data2.map( items=>{
+          if( this.state.NumOfHorn === 2 ){
+            return(
+              <>
+                {/* {console.log( this.state.NumOfHorn )} */}
+                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+              </>
+            );
+          }
+        }
+        )}
+        {Data3.map( items=>{
+          if( this.state.NumOfHorn === 3 ){
+            return(
+              <>
+                {/* {console.log( this.state.NumOfHorn )} */}
+                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+              </>
+            );
+          }
+        }
+        )}
+        {Data4.map( items=>{
+          if( this.state.NumOfHorn === 100 ){
+            return(
+              <>
+                {/* {console.log( this.state.NumOfHorn )} */}
+                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
+              </>
+            );
+          }
+        }
         )}
 
 
