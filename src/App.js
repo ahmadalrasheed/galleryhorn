@@ -4,13 +4,16 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Main from './components/main';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SelectedBeasts from './components/SelectedBeast '
+import SelectedBeasts from './components/SelectedBeast ';
+
+
 
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state={
+      NumOfHorn:0,
       show:false,
       image_url:'',
       title:'',
@@ -39,12 +42,19 @@ class App extends React.Component {
     })
     console.log('test function');
   }
+  Filterhorn=async( e )=>{
+    await this.setState( {
+      NumOfHorn:Number( e.target.value )
+    } );
+  }
+
+  
 
   render() {
     return (
       <>
         <Header />
-        <Main UpdateState={this.UpdateState} DisplayModel={this.DisplayModel}/>
+        <Main NumOfHorn={this.state.NumOfHorn} Filterhorn={this.Filterhorn} UpdateState={this.UpdateState} DisplayModel={this.DisplayModel}/>
         <SelectedBeasts CloseModel={this.CloseModel} show={this.state.show}
         titleUpdate={this.state.title}
         descriptionUpdate={this.state.description}

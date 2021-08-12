@@ -2,121 +2,34 @@ import React from 'react';
 import Hornedbeasts from './hornedbeasts';
 import './main.css';
 import Data from './data.json';
-import SelectedBeasts from './SelectedBeast ';
-import Form from 'react-bootstrap/Form';
-import Data1 from './horn1.json';
-import Data2 from './horn2.json';
-import Data3 from './horn3.json';
-import Data4 from './horn100.json';
+import DropDown from './dropdown';
+
 
 
 class Main extends React.Component {
-  constructor( props ){
-    super( props );
-    this.state = {
-      NumOfHorn:0
-    };
-  }
-
-  Filterhorn=async( e )=>{
-    await this.setState( {
-      NumOfHorn:Number( e.target.value )
-    } );
-    console.log( this.state.NumOfHorn );
-  }
-
-  DropDown=()=>{
-    return(
-      <Form.Select onChange={this.Filterhorn} aria-label="Floating label select example">
-        <option value="0">filter by number of horns: ALL</option>
-        <option value="1" >one</option>
-        <option value="2" >Two</option>
-        <option value="3" >Three</option>
-        <option value="100" >WOOW!!</option>
-      </Form.Select>
-    );
-
-
-  }
 
   render() {
     // {DropDown;}
     return (
       <div>
-        {this.DropDown()}
-        {Data.map( items=>{
-          if( this.state.NumOfHorn === 0 ){
+        <DropDown Filterhorn={this.props.Filterhorn}/>
+        {Data.map( items => {
+          if( items.horns === this.props.NumOfHorn || this.props.NumOfHorn === 0 ){
             return(
               <>
                 {/* {console.log( this.state.NumOfHorn )} */}
                 <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
               </>
             );
           }
         }
         )}
-        {Data1.map( items=>{
-          if( this.state.NumOfHorn === 1 ){
-            return(
-              <>
-                {/* {console.log( this.state.NumOfHorn )} */}
-                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-              </>
-            );
-          }
-        }
-        )}
-        {Data2.map( items=>{
-          if( this.state.NumOfHorn === 2 ){
-            return(
-              <>
-                {/* {console.log( this.state.NumOfHorn )} */}
-                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-              </>
-            );
-          }
-        }
-        )}
-        {Data3.map( items=>{
-          if( this.state.NumOfHorn === 3 ){
-            return(
-              <>
-                {/* {console.log( this.state.NumOfHorn )} */}
-                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-              </>
-            );
-          }
-        }
-        )}
-        {Data4.map( items=>{
-          if( this.state.NumOfHorn === 100 ){
-            return(
-              <>
-                {/* {console.log( this.state.NumOfHorn )} */}
-                <Hornedbeasts UpdateState={this.props.UpdateState} DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-                <SelectedBeasts DisplayModel={this.props.DisplayModel} title={items.title} image_url={items.image_url} description={items.description}/>
-              </>
-            );
-          }
-        }
-        )}
-
-
-        {/* <Hornedbeasts name="Unicorn Head" imgtitle="https://www.dhresource.com/0x0s/f2-albu-g5-M00-1A-11-rBVaI1hsIIiALxKzAAIHjSU3VkE490.jpg/wholesale-halloween-costume-prop-unicorn.jpg" title="Unicorn Head" alt="Unicorn Head photo" height="500" width="500" paragraph="Someone wearing a creepy unicorn head mask"/>
-                <Hornedbeasts name="Rhino Family" imgtitle="https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80" title="Rhino Family" alt="Rhino Family photo" height="300" width="500" paragraph="Mother (or father) rhino with two babies" />
-                <Hornedbeasts name="UniWhal" imgtitle="http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg" title="UniWhal" alt="UniWhal photo" height="300" width="500" paragraph="A unicorn and a narwhal nuzzling their horns" /> */}
-
-
-
-
-
       </div>
     );
   }
-
 }
+
+
+
+
 export default Main;
