@@ -1,7 +1,6 @@
 import React from 'react';
 import Hornedbeasts from './hornedbeasts';
 import './main.css';
-import Data from './data.json';
 import DropDown from './dropdown';
 
 
@@ -13,7 +12,7 @@ class Main extends React.Component {
     return (
       <div>
         <DropDown Filterhorn={this.props.Filterhorn}/>
-        {Data.map( items => {
+        {this.props.Data.map( items => {
           if( items.horns === this.props.NumOfHorn || this.props.NumOfHorn === 0 ){
             return(
               <>

@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import Main from './components/main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SelectedBeasts from './components/SelectedBeast ';
+import Data from './components/data.json';
 
 
 
@@ -54,7 +55,7 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <Main NumOfHorn={this.state.NumOfHorn} Filterhorn={this.Filterhorn} UpdateState={this.UpdateState} DisplayModel={this.DisplayModel}/>
+        <Main Data={Data} NumOfHorn={this.state.NumOfHorn} Filterhorn={this.Filterhorn} UpdateState={this.UpdateState} DisplayModel={this.DisplayModel}/>
         <SelectedBeasts CloseModel={this.CloseModel} show={this.state.show}
         titleUpdate={this.state.title}
         descriptionUpdate={this.state.description}
